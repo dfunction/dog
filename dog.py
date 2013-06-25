@@ -4,23 +4,25 @@ import twitter
 import re
 import urllib
 import datetime
-import hashlib
 from mandrill import Mandrill
 from mandrill import Error
 from SimpleLogger import SimpleLogger
 from SimpleTimer import SimpleTimer
+from DB import DB
 
 ## Globals
 
 ## Main
 def main():
-    global logger, timer
+    global logger, timer, db
 
     logger = SimpleLogger("dog.log")
     logger.initialize()
     logger.log("\n\n\nRunning dog on " + str(datetime.datetime.now()))
 
     timer = SimpleTimer()
+
+    db = DB("test.db")
 
     sources = loadSources()
     emailsWithLinks = getEmailsWithLinks(sources)
@@ -146,5 +148,7 @@ def sendEmails(emailsWithLinks):
         logger.log("Emailed: " + str(emailWithLink))
     logger.log(timer.stop())
     return
+
+def
 
 main()
