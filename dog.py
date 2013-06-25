@@ -4,6 +4,7 @@ import twitter
 import re
 import urllib
 import datetime
+import hashlib
 from mandrill import Mandrill
 from mandrill import Error
 from SimpleLogger import SimpleLogger
